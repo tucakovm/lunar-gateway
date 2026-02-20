@@ -6,13 +6,17 @@ services:
   Meridian: meridian:8000
   AuthService: apollo:8002
   RateLimitService: rate_limiter_service:8080
-  Starmap : starmap:9002
+  Starmap: starmap:9002
 groups:
   core:
     v1:
       PutChart:
         method_route: /chart
         type: POST
+        service: Starmap
+      GetCharts:
+        method_route: /charts
+        type: GET
         service: Starmap 
       GetChartMetadata:
         method_route: /chart/metadata
@@ -49,7 +53,7 @@ groups:
       Extend:
         method_route: /extend
         type: POST
-        service: Starmap  
+        service: Starmap      
       RegisterUser:
         method_route: /user
         type: POST
