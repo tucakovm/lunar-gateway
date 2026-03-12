@@ -54,6 +54,10 @@ groups:
         method_route: /extend
         type: POST
         service: Starmap      
+      Search:
+        method_route: /search
+        type: GET
+        service: Starmap    
       RegisterUser:
         method_route: /user
         type: POST
